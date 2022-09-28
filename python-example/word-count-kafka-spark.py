@@ -13,16 +13,13 @@ findspark.init()
 
 import pyspark
 
-# consume from a topic called invoicess
-# calculate aggregate , print data on console
-# publish the aggregated values back to kafka as JSON
+# connect kafka with spark with simple word count example
+# run on a terminal after starting kafka
+#     kafka-topics  --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic words
+#     kafka-console-producer --bootstrap-server localhost:9092 --topic words  
 
-# kafka create a topic called "aggregated-invoices"
-
-# kafka-topics  --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic aggregated-invoices
-
-# run consumer to listen on messages from aggregated-invoices
-# kafka-console-consumer --bootstrap-server localhost:9092 --topic aggregated-invoices 
+#     kafka-topics  --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic word-counts
+#     kafka-console-consumer --bootstrap-server localhost:9092 --topic word-counts --from-beginning 
 
 
 from pyspark.sql import SparkSession
