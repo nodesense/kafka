@@ -4,12 +4,14 @@ Install Postman
 
 ```
 sudo snap install postman
+
+postman
 ```
 
 Success Test URL 
 
 ```
-http://localhost:8181/orders 
+http://localhost:8181/orders
 ```
 
 Payload for POSTMAN or save the content into order-success.json and use with Curl. refer commands for curl below..
@@ -39,6 +41,22 @@ Payload for POSTMAN or save the content into order-success.json and use with Cur
         }
     ]
 }
+```
+
+Web service reply with tracking id, use this id for getting status of the order using below end point
+
+```
+{
+    "orderTrackingId": "2e9056e0-ff1d-4187-8687-8e9ac494fba0",
+    "orderStatus": "PENDING",
+    "message": "Order created successfully"
+}
+```
+
+POSTMAN GET METHOD , note, ID will vary request to request..
+
+```
+http://localhost:8181/orders/2e9056e0-ff1d-4187-8687-8e9ac494fba0
 ```
 
 ----------------------------------
