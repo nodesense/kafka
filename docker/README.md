@@ -8,6 +8,7 @@ paste below
 
 ```
 127.0.0.1 zookeeper
+127.0.0.1 kafka-broker-0
 127.0.0.1 kafka-broker-1
 127.0.0.1 kafka-broker-2
 127.0.0.1 kafka-broker-3
