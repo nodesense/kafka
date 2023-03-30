@@ -1,6 +1,5 @@
 # MySQL , JDBC Source and Sink : Event Sourcing
 
-```
  
 
 # MYSQL Table/Database Setup
@@ -67,6 +66,8 @@ exit
 ```
 
 cd ~
+
+```
 
 ```
 touch mysql-product-source.json
