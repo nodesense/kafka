@@ -1,5 +1,10 @@
 Microservice with Saga Example...
 
+Install Postman
+
+```
+sudo snap install postman
+```
 
 Success Test URL 
 
