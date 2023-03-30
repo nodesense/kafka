@@ -9,9 +9,9 @@ cd docker
 
 wget https://raw.githubusercontent.com/nodesense/kafka/main/docker/.env
 
-wget https://github.com/nodesense/kafka/blob/main/docker/common.yml
+wget https://raw.githubusercontent.com/nodesense/kafka/main/docker/common.yml
 
-wget https://github.com/nodesense/kafka/blob/main/docker/mysql.yml
+wget https://raw.githubusercontent.com/nodesense/kafka/main/docker/mysql.yml
 ```
 
 ```
