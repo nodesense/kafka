@@ -67,3 +67,29 @@ http://localhost:8181/orders/2e9056e0-ff1d-4187-8687-8e9ac494fba0
 curl -X POST -H "Content-Type: application/json" -d order-success.json http://localhost:8181/orders
 
 ```
+
+## Failure
+
+Order a product that doesn't exit.
+
+
+```
+{
+    "customerId": "d215b5f8-0249-4dc5-89a3-51fd148cfb41",
+    "restaurantId": "d215b5f8-0249-4dc5-89a3-51fd148cfb45",
+    "address": {
+        "street": "1st main road",
+        "postalCode": "560001",
+        "city" : "Bengaluru"
+    },
+    "price": 25.00,
+    "items": [
+        {
+            "productId": "d215b5f8-0249-4dc5-89a3-51fd148cfb47",
+            "quantity": 1,
+            "price": 25.00,
+             "subTotal": 25.00
+        }
+    ]
+}
+```
