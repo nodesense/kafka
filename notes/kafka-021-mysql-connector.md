@@ -11,11 +11,14 @@ cd ~
 
 ## Setup the database 
 
+mysql username: root
+mysql password: root
+
+
 ```
-sudo mysql -u root -p 
+sudo mysql -u root -proot
 ```
 
-password is root
 
 ```
 SELECT User,Host FROM mysql.user;
