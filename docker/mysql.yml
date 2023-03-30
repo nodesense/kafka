@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    restart: always
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+    ports:
+      - "3306:3306"
