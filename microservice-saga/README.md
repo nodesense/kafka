@@ -7,7 +7,7 @@ Success Test URL
 http://localhost:8181/orders 
 ```
 
-Payload
+Payload for POSTMAN or save the content into order-success.json and use with Curl. refer commands for curl below..
 
 ```
 {
@@ -38,3 +38,9 @@ Payload
 
 ----------------------------------
 
+## CURL
+
+```
+curl -X POST -H "Content-Type: application/json" -d order-success.json http://localhost:8181/orders
+
+```
