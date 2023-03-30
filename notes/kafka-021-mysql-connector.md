@@ -1,7 +1,5 @@
 # MySQL , JDBC Source and Sink : Event Sourcing
 
- 
-
 # MYSQL Table/Database Setup
 
 
