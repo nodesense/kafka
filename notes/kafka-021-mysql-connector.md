@@ -4,12 +4,7 @@
 
 cd ~
 ```
-
-# INSTALL MYSQL
-
-```
-sudo apt install mysql-server
-```
+ 
 
 # MYSQL Table/Database Setup
 
@@ -26,12 +21,14 @@ password is root
 SELECT User,Host FROM mysql.user;
 
 CREATE USER 'team'@'localhost' IDENTIFIED BY 'team1234';
+CREATE USER 'team'@'%' IDENTIFIED BY 'team1234';
 
 CREATE DATABASE ecommerce; 
+GRANT ALL ON *.* TO 'team'@'localhost';
+GRANT ALL ON *.* TO 'team'@'%';
+FLUSH PRIVILEGES;
 
-GRANT ALL PRIVILEGES ON ecommerce.* TO 'team'@'localhost';
-
-exit
+exit;
 ```
 
 
