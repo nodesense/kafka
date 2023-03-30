@@ -17,9 +17,12 @@ sudo apt install mysql-server
 ## Setup the database 
 
 ```
-sudo mysql -u root
+sudo mysql -u root -p 
+```
 
+password is root
 
+```
 SELECT User,Host FROM mysql.user;
 
 CREATE USER 'team'@'localhost' IDENTIFIED BY 'team1234';
