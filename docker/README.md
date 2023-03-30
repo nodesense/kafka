@@ -1,5 +1,23 @@
 # Docker Setup
 
+```
+sudo nano /etc/hosts
+```
+
+paste below
+
+```
+127.0.0.1 zookeeper
+127.0.0.1 kafka-broker-1
+127.0.0.1 kafka-broker-2
+127.0.0.1 kafka-broker-3
+127.0.0.1 schema-registry
+```
+
+Ctrl + O then Enter to save file
+
+Ctrl + X to exit
+
 
 ```
 
