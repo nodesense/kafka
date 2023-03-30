@@ -3,6 +3,8 @@
 
 ```
 
+cd ~
+
 mkdir docker
 
 cd docker
