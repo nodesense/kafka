@@ -1,14 +1,14 @@
 # RabbitMQ vs Kafka
 
-Further Reading
+### Further Reading
 
    -- https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html
    
    -- https://www.openlogic.com/blog/kafka-vs-rabbitmq
 
-Message handling (message replay)
+###  Message handling (message replay)
 
-Kafka
+#### Kafka
 
    --  The message queue in Kafka is persistent. 
    
@@ -18,7 +18,7 @@ Kafka
    
    --  the message can be replayed or consumed multiple times
 
-RabbitMQ
+#### RabbitMQ
 
 
 -- messages are stored until a receiving application connects and receives a message off the queue
@@ -30,7 +30,7 @@ RabbitMQ
 -- once the message is acked, it’s removed from the queue.
 
 
-Considerations
+#### Considerations
 
 -- In Producer to Consumer ack is not possible in Kafka, This cannot be solved
 
@@ -52,7 +52,7 @@ Considerations
 -- Message priority features in RabbitMq cannot be solved in Kafka, workaround may be create multiple topics based on importants, put messages based on priority
      like  tasks_high_priority, tasks_low_priority
 
-Performance/Scaling
+#### Performance/Scaling
     
 --    More messages - add more brokers, more partitions, more consumers in consumer group
 --    Fault Tolerance - replications 
