@@ -1,4 +1,4 @@
-0. Download and install JDK 1.8 [Adaptive JDK]  https://adoptopenjdk.net/
+0. Download and install JDK 1.8, while installing ensure to check JAVA_HOME path [Adaptive JDK]  https://adoptopenjdk.net/
 1. Download  http://packages.confluent.io/archive/5.5/confluent-5.5.5-2.12.tar.gz
 2. Extract using 7zip/WinRar
 3. Copy the confluent-5.5.5 folder to C:\confluent-5.5.5   [where you could see bin/etc on sub folders]
