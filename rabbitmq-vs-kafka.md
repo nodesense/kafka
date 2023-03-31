@@ -1,17 +1,18 @@
 # RabbitMQ vs Kafka
 
 Further Reading
--- https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html
--- https://www.openlogic.com/blog/kafka-vs-rabbitmq
+
+   -- https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html
+   -- https://www.openlogic.com/blog/kafka-vs-rabbitmq
 
 Message handling (message replay)
 
 Kafka
 
---  The message queue in Kafka is persistent. 
---  The data sent is stored until a specified retention period has passed either a period of time or a size limit.
---  the message is not removed once it’s consumed. 
---  the message can be replayed or consumed multiple times
+   --  The message queue in Kafka is persistent. 
+   --  The data sent is stored until a specified retention period has passed either a period of time or a size limit.
+   --  the message is not removed once it’s consumed. 
+   --  the message can be replayed or consumed multiple times
 
 RabbitMQ
 
