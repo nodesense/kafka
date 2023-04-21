@@ -1,30 +1,6 @@
-# ibm-kafka-june-2021
+# Windows
 
-# for Kafka Stream rockdb dll issue
-
-Download C++ Redistributabe 2015 and install it
-
-https://www.microsoft.com/en-us/download/details.aspx?id=48145
-
-Download vc_redist.x64.exe and install it
-
-
-and in the pom.xml,
-
-```
- <dependency>
-            <groupId>org.rocksdb</groupId>
-            <artifactId>rocksdbjni</artifactId>
-            <version>5.18.4</version>
-        </dependency>
-```
-
-
-# Day 3.5 onwards
-
-```
-wsl.exe -u root
-```
+ 
 
 ```
 sudo apt install jq
