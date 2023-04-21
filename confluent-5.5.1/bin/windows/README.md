@@ -1,5 +1,3 @@
-helper files to start schema registry on windows..
 
-Copy two files into C:\confluent-5.5.1\bin\windows directory.. while saving the file, select All files, do save as..
-Ensure that the files stored as .bat file not Text file..
+For convinence, download   https://github.com/nodesense/kafka/raw/main/confluent-5.5.1/bin/windows/kafka-windows-bin-addon.zip zip file and extract the contents and copy the files into C:\confluent-5.5.1\bin\windows
 
