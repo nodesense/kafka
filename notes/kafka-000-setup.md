@@ -19,3 +19,23 @@ call:concat %BASE_DIR%\share\java\kafka\*
 ```
 
 Then download zookeeper, broker-0.bat files to desktop to start kafka..
+
+### for Kafka Stream rockdb dll issue for Windows
+
+Download C++ Redistributabe 2015 and install it
+
+https://www.microsoft.com/en-us/download/details.aspx?id=48145
+
+Download vc_redist.x64.exe and install it
+
+
+and in the pom.xml,
+
+```
+ <dependency>
+            <groupId>org.rocksdb</groupId>
+            <artifactId>rocksdbjni</artifactId>
+            <version>5.18.4</version>
+        </dependency>
+```
+
