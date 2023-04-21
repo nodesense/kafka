@@ -1,3 +1,6 @@
+
+
+
 0. Download and install JDK 1.8, while installing ensure to check JAVA_HOME path [Adaptive JDK]  https://adoptium.net/temurin/archive/?version=8  Download x64 version, ensure to enable JAVA_HOME while installing.
 1. Download  http://packages.confluent.io/archive/5.5/confluent-5.5.1-2.12.zip
 2. Extract using 7zip/WinRar
@@ -18,7 +21,18 @@ call:concat %BASE_DIR%\share\java\kafka\*
 )
 ```
 
-Then download zookeeper, broker-0.bat files to desktop to start kafka..
+
+Setup Batch files to start schmea-registry
+
+https://github.com/nodesense/kafka/tree/main/confluent-5.5.1/bin/windows
+
+
+Setup Desktop Short cuts
+
+
+https://github.com/nodesense/kafka/blob/main/Desktop/README.md
+
+Then download zookeeper.bat, broker-0.bat files to desktop to start kafka..
 
 ### for Kafka Stream rockdb dll issue for Windows
 
