@@ -10,9 +10,19 @@ mysql password: root
 
 
 ```
-sudo mysql -u root -proot
+
+
+su 
+
+note: enter password Training@123
+
+sudo apt install mysql-server
+
+
+sudo mysql -u root 
 ```
 
+copy paste all statements in mysql prompt
 
 ```
 SELECT User,Host FROM mysql.user;
@@ -28,6 +38,9 @@ FLUSH PRIVILEGES;
 exit;
 ```
 
+```
+exit
+```
 
 Exit from the shell
 
