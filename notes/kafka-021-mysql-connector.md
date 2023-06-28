@@ -16,7 +16,7 @@ su
 
 note: enter password Training@123
 
-sudo apt install mysql-server
+sudo apt install mysql-server -y
 
 
 sudo mysql -u root 
