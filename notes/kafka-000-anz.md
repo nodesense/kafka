@@ -32,4 +32,10 @@ comment out below lines
 
 Save the file
 
+remove existing sim link
+```
+sudo unlink /bin/confluent
+```
+
+
 close and reopen the terminal
