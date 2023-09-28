@@ -9,12 +9,14 @@ mysql username: root
 mysql password: root
 
 
-```
-
 
 su 
 
-note: enter password Training@123
+note: enter password Welcome@123
+
+```
+
+
 
 sudo apt install mysql-server -y
 
