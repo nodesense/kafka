@@ -19,7 +19,7 @@ import pyspark
 # spark streaming works as dataframe/sql
 kafkaDf = spark.readStream.format("kafka")\
   .option("kafka.bootstrap.servers", "localhost:9092")\
-  .option("subscribe", "invoices2")\
+  .option("subscribe", "<<yourname>>-invoices")\
   .load()
 
 # .show/print will not work directily due to stream..
@@ -96,7 +96,7 @@ windowedAmountSum \
     .format("kafka") \
     .outputMode("complete") \
     .option("kafka.bootstrap.servers", "localhost:9092") \
-    .option("topic", "aggregated-invoices") \
+    .option("topic", "<<yourname>>-aggregated-invoices") \
     .option("checkpointLocation", "file:///c:/spark/temp") \
     .start()
 
