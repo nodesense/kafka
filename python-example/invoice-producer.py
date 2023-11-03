@@ -6,13 +6,14 @@ import datetime
 import json
 import time
 
-#  kafka-topics  --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 4 --topic invoices2
+#  kafka-topics  --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 4 --topic <<yourname>>-invoices
 
 # for testing to check whether we have invoice generated or not.
-# kafka-console-consumer --bootstrap-server localhost:9092 --topic invoices2
+# kafka-console-consumer --bootstrap-server localhost:9092 --topic <<yourname>>-invoices
 
+# TODO: Change host name correctly..
 
-TOPIC = "invoices2"
+TOPIC = "<<yourname>>-invoices"
 SAMPLES = 1000
 DELAY = 5 # seconds
 
