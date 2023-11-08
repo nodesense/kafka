@@ -16,9 +16,10 @@ open a command prompt
 
 open a command prompt and run producer
 
-```
 notes: enter some text and press enter key, each line is consider as one message
 
+
+```
 kafka-console-producer --broker-list localhost:9092 --topic test
 ```
 
