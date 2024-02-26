@@ -5,13 +5,13 @@ start zookeeper
 
 
 ```
-$CONFLUENT_HOME/bin/zookeeper-server-start $CONFLUENT_HOME/etc/kafka/zookeeper.properties 
+$KAFKA_HOME/bin/zookeeper-server-start $KAFKA_HOME/etc/kafka/zookeeper.properties 
 ```
 
 
 Start Broker 0 with default configuration as is 
 ```
-$CONFLUENT_HOME/bin/kafka-server-start $CONFLUENT_HOME/etc/kafka/server.properties
+$KAFKA_HOME/bin/kafka-server-start $KAFKA_HOME/etc/kafka/server.properties
 ```
 
 patch below properties with command line override
@@ -26,7 +26,7 @@ log.dirs=/tmp/kafka-logs
 Start Broker 1 with  override the properties using command line 
 
 ```
-$CONFLUENT_HOME/bin/kafka-server-start $CONFLUENT_HOME/etc/kafka/server.properties \
+$KAFKA_HOME/bin/kafka-server-start $KAFKA_HOME/etc/kafka/server.properties \
 --override broker.id=1 \
 --override listeners=PLAINTEXT://:9093 \
 --override log.dirs=/tmp/kafka-logs-1 \
@@ -36,7 +36,7 @@ $CONFLUENT_HOME/bin/kafka-server-start $CONFLUENT_HOME/etc/kafka/server.properti
 Start Broker 2 with override the properties using command line 
 
 ```
-$CONFLUENT_HOME/bin/kafka-server-start $CONFLUENT_HOME/etc/kafka/server.properties \
+$KAFKA_HOME/bin/kafka-server-start $KAFKA_HOME/etc/kafka/server.properties \
 --override broker.id=2 \
 --override listeners=PLAINTEXT://:9094 \
 --override log.dirs=/tmp/kafka-logs-2 \
@@ -47,7 +47,7 @@ $CONFLUENT_HOME/bin/kafka-server-start $CONFLUENT_HOME/etc/kafka/server.properti
 Start Broker 3 with override the properties using command line 
 
 ```
-$CONFLUENT_HOME/bin/kafka-server-start $CONFLUENT_HOME/etc/kafka/server.properties \
+$KAFKA_HOME/bin/kafka-server-start $KAFKA_HOME/etc/kafka/server.properties \
 --override broker.id=3 \
 --override listeners=PLAINTEXT://:9095 \
 --override log.dirs=/tmp/kafka-logs-3 \
