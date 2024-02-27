@@ -1,8 +1,10 @@
 
 
 
+
+
 0. Download and install JDK 1.8, while installing ensure to check JAVA_HOME path [Adaptive JDK]  https://adoptium.net/temurin/archive/?version=8  Download x64 version, ensure to enable JAVA_HOME while installing.
-1. Download  http://packages.confluent.io/archive/5.5/confluent-5.5.1-2.12.zip
+1. Download  https://packages.confluent.io/archive/5.5/confluent-5.5.5-2.12.zip
 2. Extract using 7zip/WinRar
 3. Copy the confluent-5.5.5 folder to C:\confluent-5.5.5   [where you could see bin/etc on sub folders]
 5. Ensure you have JAVA_HOME in environment variables
@@ -10,7 +12,7 @@
 7. [optional] Ensure add C:\confluent-5.5.5\bin\windows to PATH env variables
 
 
-open C:\confluent-5.5.1\bin\windows\kafka-run-class.bat in notepad++ (right click, edit with notepad++)
+open C:\confluent-5.5.5\bin\windows\kafka-run-class.bat in notepad++ (right click, edit with notepad++)
 
 paste below line around line 45
 
@@ -24,7 +26,7 @@ call:concat %BASE_DIR%\share\java\kafka\*
 
 Setup Batch files to start schmea-registry
 
-https://github.com/nodesense/kafka/tree/main/confluent-5.5.1/bin/windows
+https://github.com/nodesense/kafka/tree/main/confluent-5.5.5/bin/windows
 
 
 Setup Desktop Short cuts
