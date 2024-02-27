@@ -24,9 +24,9 @@ call:concat %BASE_DIR%\share\java\kafka\*
 ```
 
 
-Setup Batch files to start schmea-registry
+Setup Batch files to start schmea-registry [I will rename the directory name later]
 
-https://github.com/nodesense/kafka/tree/main/confluent-5.5.5/bin/windows
+https://github.com/nodesense/kafka/tree/main/confluent-5.5.1/bin/windows
 
 
 Setup Desktop Short cuts
