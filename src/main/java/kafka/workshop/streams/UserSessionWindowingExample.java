@@ -1,4 +1,4 @@
-package kafka.workshop.stream;
+package kafka.workshop.streams;
 
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
