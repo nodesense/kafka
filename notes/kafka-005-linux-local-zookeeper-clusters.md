@@ -35,42 +35,97 @@ echo "3" > /tmp/zkc/zk3/myid
 3xxx/3888 ports used for leader election
 
 ```
-$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/etc/kafka/zookeeper.properties \
-  --override dataDir=/tmp/zkc/zk1/data \
-  --override dataLogDir=/tmp/zkc/zk1/log \
-  --override clientPort=2181 \
-  --override server.1=127.0.0.1:2888:3888 \
-  --override server.2=127.0.0.1:2889:3889 \
-  --override server.3=127.0.0.1:2890:3890 \
-  --override 4lw.commands.whitelist=* \
-  --override myid=1
-
+nano /tmp/zkc/zk1/zookeeper.properties
+```
+```
+dataDir=/tmp/zkc/zk1/data
+dataLogDir=/tmp/zkc/zk1/log
+clientPort=2181
+server.1=127.0.0.1:2888:3888
+server.2=127.0.0.1:2889:3889
+server.3=127.0.0.1:2890:3890
+4lw.commands.whitelist=*
+initLimit=5
+syncLimit=2
 ```
 
-## Node 2 (ZooKeeper ID 2)
- 
 ```
-$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/etc/kafka/zookeeper.properties \
-  --override dataDir=/tmp/zkc/zk2/data \
-  --override dataLogDir=/tmp/zkc/zk2/log \
-  --override clientPort=2182 \
-  --override server.1=127.0.0.1:2888:3888 \
-  --override server.2=127.0.0.1:2889:3889 \
-  --override server.3=127.0.0.1:2890:3890 \
-  --override 4lw.commands.whitelist=* \
-  --override myid=2
+nano /tmp/zkc/zk2/zookeeper.properties
 ```
 
-## Node 3 (ZooKeeper ID 3)
 ```
-$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/etc/kafka/zookeeper.properties \
-  --override dataDir=/tmp/zkc/zk3/data \
-  --override dataLogDir=/tmp/zkc/zk3/log \
-  --override clientPort=2183 \
-  --override server.1=127.0.0.1:2888:3888 \
-  --override server.2=127.0.0.1:2889:3889 \
-  --override server.3=127.0.0.1:2890:3890 \
-  --override 4lw.commands.whitelist=* \
-  --override myid=3
+dataDir=/tmp/zkc/zk2/data
+dataLogDir=/tmp/zkc/zk2/log
+clientPort=2182
+server.1=127.0.0.1:2888:3888
+server.2=127.0.0.1:2889:3889
+server.3=127.0.0.1:2890:3890
+4lw.commands.whitelist=*
+initLimit=5
+syncLimit=2
 ```
 
+```
+nano /tmp/zkc/zk3/zookeeper.properties
+```
+
+```
+dataDir=/tmp/zkc/zk3/data
+dataLogDir=/tmp/zkc/zk3/log
+clientPort=2183
+server.1=127.0.0.1:2888:3888
+server.2=127.0.0.1:2889:3889
+server.3=127.0.0.1:2890:3890
+4lw.commands.whitelist=*
+initLimit=5
+syncLimit=2
+```
+
+```
+echo "1" > /tmp/zkc/zk1/data/myid
+echo "2" > /tmp/zkc/zk2/data/myid
+echo "3" > /tmp/zkc/zk3/data/myid
+```
+
+open a tab
+```
+$KAFKA_HOME/bin/zookeeper-server-start /tmp/zkc/zk1/zookeeper.properties
+```
+
+second tab
+```
+$KAFKA_HOME/bin/zookeeper-server-start /tmp/zkc/zk2/zookeeper.properties
+```
+
+third tab
+```
+$KAFKA_HOME/bin/zookeeper-server-start /tmp/zkc/zk3/zookeeper.properties
+```
+
+# Health check
+```
+echo "ruok" | nc 127.0.0.1 2181
+echo "ruok" | nc 127.0.0.1 2182
+echo "ruok" | nc 127.0.0.1 2183
+```
+
+# Metrics
+```
+echo "mntr" |  nc 127.0.0.1 2181
+echo "mntr" |  nc 127.0.0.1 2182
+echo "mntr" |  nc 127.0.0.1 2183
+```
+
+# Server statistics
+```
+echo "stat" |  nc 127.0.0.1 2181
+echo "stat" |  nc 127.0.0.1 2182
+echo "stat" |  nc 127.0.0.1 2183
+```
+
+# Configuration details
+```
+echo "conf" |  nc 127.0.0.1 2181
+echo "conf" |  nc 127.0.0.1 2182
+echo "conf" |  nc 127.0.0.1 2183  
+```
