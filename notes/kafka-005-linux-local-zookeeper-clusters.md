@@ -23,9 +23,9 @@ create data directory and myid directory for each zookeeper instance. we create 
 ```
 mkdir -p /tmp/zkc/zk1/data /tmp/zkc/zk2/data /tmp/zkc/zk3/data
 
-echo "1" > /tmp/zkc/zk1/myid
-echo "2" > /tmp/zkc/zk2/myid
-echo "3" > /tmp/zkc/zk3/myid
+echo "1" > /tmp/zkc/zk1/data/myid
+echo "2" > /tmp/zkc/zk2/data/myid
+echo "3" > /tmp/zkc/zk3/data/myid
 ```
 
 ## Node 1 (ZooKeeper ID 1)
@@ -80,12 +80,7 @@ server.3=127.0.0.1:2890:3890
 initLimit=5
 syncLimit=2
 ```
-
-```
-echo "1" > /tmp/zkc/zk1/data/myid
-echo "2" > /tmp/zkc/zk2/data/myid
-echo "3" > /tmp/zkc/zk3/data/myid
-```
+ 
 
 open a tab
 ```
