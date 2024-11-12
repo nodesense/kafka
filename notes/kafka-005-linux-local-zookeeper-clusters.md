@@ -22,7 +22,6 @@ create data directory and myid directory for each zookeeper instance. we create 
 
 ```
 mkdir -p /tmp/zkc/zk1/data /tmp/zkc/zk2/data /tmp/zkc/zk3/data
-mkdir -p /tmp/zkc/zk1/myid /tmp/zkc/zk2/myid /tmp/zkc/zk3/myid
 
 echo "1" > /tmp/zkc/zk1/myid
 echo "2" > /tmp/zkc/zk2/myid
