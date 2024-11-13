@@ -6,7 +6,7 @@
 
 
 ```
-mkdir -p /tmp/kraft/bk1 /tmp/kraft/bk2 /tmp/kraft/bk2 
+mkdir -p /tmp/kraft/bk1/data /tmp/kraft/bk2/data /tmp/kraft/bk2/data 
 ```
 
 ```
@@ -29,7 +29,7 @@ listener.security.protocol.map=PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
 inter.broker.listener.name=PLAINTEXT
 
 # Log directory for data storage
-log.dirs=/tmp/kraft-combined-logs-1001
+log.dirs=/tmp/kraft/bk1/data
 
 # KRaft-specific configurations
 offsets.topic.replication.factor=3
@@ -59,7 +59,7 @@ controller.quorum.voters=1001@localhost:9093,1002@localhost:9094,1003@localhost:
 listeners=PLAINTEXT://localhost:9096,CONTROLLER://localhost:9094
 listener.security.protocol.map=PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
 inter.broker.listener.name=PLAINTEXT
-log.dirs=/tmp/kraft-combined-logs-1002
+log.dirs=/tmp/kraft/bk2/data
 offsets.topic.replication.factor=3
 transaction.state.log.replication.factor=3
 transaction.state.log.min.isr=2
@@ -85,7 +85,7 @@ controller.quorum.voters=1001@localhost:9093,1002@localhost:9094,1003@localhost:
 listeners=PLAINTEXT://localhost:9098,CONTROLLER://localhost:9095
 listener.security.protocol.map=PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
 inter.broker.listener.name=PLAINTEXT
-log.dirs=/tmp/kraft-combined-logs-1003
+log.dirs=/tmp/kraft/bk3/data
 offsets.topic.replication.factor=3
 transaction.state.log.replication.factor=3
 transaction.state.log.min.isr=2
