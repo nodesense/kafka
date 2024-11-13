@@ -136,7 +136,7 @@ log.retention.check.interval.ms=300000
 you need to copy this id over again and again for each storage commmand 3 times
 
 ```
-export CLUSTER_ID=$(kafka-storage.sh random-uuid)
+export CLUSTER_ID=$(kafka-storage random-uuid)
 echo "Generated Cluster ID: $CLUSTER_ID"
 ```
 
