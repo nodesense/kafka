@@ -102,6 +102,7 @@ socket.request.max.bytes=104857600
 log.retention.hours=168
 log.segment.bytes=1073741824
 log.retention.check.interval.ms=300000
+confluent.metadata.server.listeners=http://0.0.0.0:8091
 ```
 
 
@@ -129,6 +130,7 @@ socket.request.max.bytes=104857600
 log.retention.hours=168
 log.segment.bytes=1073741824
 log.retention.check.interval.ms=300000
+confluent.metadata.server.listeners=http://0.0.0.0:8092
 ```
 
 # generate cluster id
