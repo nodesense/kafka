@@ -30,6 +30,8 @@ echo "export PATH=\$PATH:\$KAFKA_HOME/bin" >>  ~/.bashrc
 If you already have confluent 5/6 versions, open the .bashrc in nano, comment out them
 
 ```
+#export KAFKA_HOME=/opt/confluent-6.2.9
+#export CONFLUENT_HOME=/opt/confluent-6.2.9
 
 ```
 
