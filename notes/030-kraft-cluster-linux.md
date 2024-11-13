@@ -8,6 +8,32 @@
 
 
 ```
+
+https://packages.confluent.io/archive/7.7/confluent-7.7.0.tar.gz
+
+wget  https://packages.confluent.io/archive/7.7/confluent-7.7.0.tar.gz
+tar xf confluent-7.7.0.tar.gz
+
+sudo mv confluent-7.7.0 /opt
+
+ 
+
+rm confluent-7.7.0.tar.gz
+
+
+echo "export KAFKA_HOME=/opt/confluent-7.7.0" >> ~/.bashrc
+echo "export CONFLUENT_HOME=/opt/confluent-7.7.0" >> ~/.bashrc
+
+echo "export PATH=\$PATH:\$KAFKA_HOME/bin" >>  ~/.bashrc
+```
+
+If you already have confluent 5/6 versions, open the .bashrc in nano, comment out them
+
+```
+
+```
+
+```
 mkdir -p /tmp/kraft/bk1/data /tmp/kraft/bk2/data /tmp/kraft/bk3/data 
 ```
 
