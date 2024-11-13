@@ -61,6 +61,9 @@ controller.quorum.voters=1001@localhost:9093,1002@localhost:9094,1003@localhost:
 listeners=PLAINTEXT://localhost:9096,CONTROLLER://localhost:9094
 listener.security.protocol.map=PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
 inter.broker.listener.name=PLAINTEXT
+
+controller.listener.names=CONTROLLER
+
 log.dirs=/tmp/kraft/bk2/data
 offsets.topic.replication.factor=3
 transaction.state.log.replication.factor=3
