@@ -115,6 +115,18 @@ replace <cluster-id> from above output, this will generate a meta.properties for
 
 ```
 kafka-storage format \
+  --config /tmp/kraft/bk1/broker1.properties \
+  --cluster-id <cluster-id>
+```
+
+```
+kafka-storage format \
+  --config /tmp/kraft/bk2/broker2.properties \
+  --cluster-id <cluster-id>
+```
+
+```
+kafka-storage format \
   --config /tmp/kraft/bk3/broker3.properties \
   --cluster-id <cluster-id>
 ```
