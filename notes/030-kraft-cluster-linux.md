@@ -6,7 +6,7 @@
 
 
 ```
-mkdir -p /tmp/kraft/bk1/data /tmp/kraft/bk2/data /tmp/kraft/bk2/data 
+mkdir -p /tmp/kraft/bk1/data /tmp/kraft/bk2/data /tmp/kraft/bk3/data 
 ```
 
 ```
