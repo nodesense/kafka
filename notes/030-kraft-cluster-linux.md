@@ -1,7 +1,9 @@
 **KRaft Controller Quorum**: Kafka uses a Raft-based quorum (KRaft) where brokers communicate with each other for leader election, metadata management, and failover. In a KRaft cluster, one or more brokers are designated as controller nodes that manage metadata.
 
 **Controller Nodes**: A subset of Kafka brokers are designated as controllers to form the Raft quorum. These controllers manage metadata (e.g., topics, partitions) and broker state.
+
 **Bootstrap Mechanism**: Brokers are configured with the controller.quorum.voters setting, which provides the initial information to establish the Raft quorum and help brokers discover each other.
+
 **Raft-based Leader Election**: The KRaft protocol handles leader election and ensures all brokers are aware of each other’s roles without the need for an external coordination service like ZooKeeper.
 
 
@@ -98,6 +100,25 @@ log.retention.hours=168
 log.segment.bytes=1073741824
 log.retention.check.interval.ms=300000
 ```
+
+# generate cluster id
+
+you need to copy this id over again and again for each storage commmand 3 times
+
+```
+kafka-storage.sh random-uuid
+```
+
+# format/prepare kafka data directory
+
+replace <cluster-id> from above output, this will generate a meta.properties for kafka.
+
+```
+kafka-storage format \
+  --config config/kraft/server.properties \
+  --cluster-id <cluster-id>
+```
+
 
 # Start Broker 1
 ```
