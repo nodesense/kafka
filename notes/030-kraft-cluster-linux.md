@@ -200,3 +200,14 @@ $KAFKA_HOME/bin/kafka-console-consumer --topic messages --bootstrap-server local
 
 ```
 
+Schema registry
+
+```
+$KAFKA_HOME/bin/schema-registry-start $KAFKA_HOME/etc/schema-registry/schema-registry.properties
+```
+
+note: schema registry will include a new property settings 
+```
+kafkastore.bootstrap.servers=PLAINTEXT://localhost:9092
+```
+
