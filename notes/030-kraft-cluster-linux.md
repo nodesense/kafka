@@ -136,7 +136,8 @@ log.retention.check.interval.ms=300000
 you need to copy this id over again and again for each storage commmand 3 times
 
 ```
-kafka-storage random-uuid
+export CLUSTER_ID=$(kafka-storage.sh random-uuid)
+echo "Generated Cluster ID: $CLUSTER_ID"
 ```
 
 # format/prepare kafka data directory
@@ -146,19 +147,19 @@ replace <cluster-id> from above output, this will generate a meta.properties for
 ```
 kafka-storage format \
   --config /tmp/kraft/bk1/broker1.properties \
-  --cluster-id <cluster-id>
+  --cluster-id  $CLUSTER_ID
 ```
 
 ```
 kafka-storage format \
   --config /tmp/kraft/bk2/broker2.properties \
-  --cluster-id <cluster-id>
+  --cluster-id  $CLUSTER_ID
 ```
 
 ```
 kafka-storage format \
   --config /tmp/kraft/bk3/broker3.properties \
-  --cluster-id <cluster-id>
+  --cluster-id  $CLUSTER_ID
 ```
 
 
