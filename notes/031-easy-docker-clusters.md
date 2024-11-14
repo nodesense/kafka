@@ -66,4 +66,4 @@ to be added into docker compose later
             command: -Dpidfile.path=/dev/null
 ```
 
-open kafka manager http://localhost:9090
+open kafka manager http://localhost:9000
