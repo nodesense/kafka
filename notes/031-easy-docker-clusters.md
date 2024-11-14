@@ -6,6 +6,7 @@ github https://github.com/sknop/kafka-docker-composer
 
 below setup make it easy to create docker compose playground for confluent kafka
 
+https://opentelemetry.io/
 
 ```
 sudo usermod -aG docker $USER
@@ -29,4 +30,19 @@ python kafka_docker_composer.py --zookeepers 1 --brokers 3 --schema-registries 1
 ```
 docker compose -f docker-compose.yml -f postgres.yaml up
 ```
+
+access grafana 
+
+http://localhost:3000
+
+username: admin
+
+password: adminpass
+
+
+access prometheus
+
+http://localhost:9090
+
+
 
