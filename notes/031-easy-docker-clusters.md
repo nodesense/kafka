@@ -8,6 +8,9 @@ below setup make it easy to create docker compose playground for confluent kafka
 
 https://opentelemetry.io/
 
+for good reference https://www.codesee.io/learning-center/opentelemetry-architecture
+
+
 ```
 sudo usermod -aG docker $USER
 newgrp docker
