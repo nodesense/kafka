@@ -48,4 +48,22 @@ access prometheus
 http://localhost:9090
 
 
+to be added into docker compose later
 
+```
+
+    kafka_manager:
+        image: hlebalbau/kafka-manager:stable
+        container_name: kakfa-manager
+        restart: always
+        ports:
+        - "9000:9000"
+        depends_on:
+            - zookeeper-1
+        environment:
+            ZK_HOSTS: "zookeeper-1:2181"
+            APPLICATION_SECRET: "random-secret"
+            command: -Dpidfile.path=/dev/null
+```
+
+open kafka manager http://localhost:9090
