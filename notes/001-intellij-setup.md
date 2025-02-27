@@ -9,3 +9,5 @@ wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.5.4.38621.tar.gz
 
 tar -xzf jetbrains-toolbox-2.5.4.38621.tar.gz && cd jetbrains-toolbox-2.5.4.38621 && ./jetbrains-toolbox
 ```
+
+From the Toolbox UI, install Intelli-community Edition
