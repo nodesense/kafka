@@ -152,3 +152,13 @@ wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.47
 tar xf mysql-connector-java-5.1.47.tar.gz
 cp mysql-connector-java-5.1.47/*.jar ./volumes/connect-plugin-jars/confluentinc-kafka-connect-jdbc-10.7.3/lib
 ```
+
+```
+docker ps --format "table {{.Names}}\t{{.Ports}}"
+```
+
+```
+curl -X POST http://localhost:8083/connectors \
+     -H "Content-Type: application/json" \
+     -d @/tmp/connects/mysql-product-source.json
+```
