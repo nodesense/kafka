@@ -56,6 +56,11 @@ export PWD=yourdirector
 
 ```
 python kafka_docker_composer.py --zookeepers 1 --brokers 3 --schema-registries 1   --prometheus
+
+or with connect..
+
+python kafka_docker_composer.py --zookeepers 1 --brokers 3 --schema-registries 1 --connect 1  --prometheus
+
 ```
 
 ```
