@@ -1,3 +1,14 @@
+# Install Miniconda
+
+```
+conda create -n kafkalab python=3.10.15  
+```
+
+```
+conda activate kafkalab
+```
+
+
 # docker cluster with docker compose, grafana, prometheis using telemetry
 
 reference article https://www.confluent.io/blog/how-to-use-kafka-docker-composer/
