@@ -175,8 +175,13 @@ curl -X GET http://localhost:8083/connectors/mysql-product-source/status
 ```
 
 
+
 ```
 curl -X POST http://localhost:8083/connectors \
      -H "Content-Type: application/json" \
      -d @/tmp/connects/mysql-product-source.json
+```
+
+```
+ kafka-avro-console-consumer --bootstrap-server kafka-2:9092 --topic db_products --from-beginning --property schema.registry.url="http://schema-registry-1:8081"
 ```
