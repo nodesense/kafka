@@ -157,6 +157,24 @@ cp mysql-connector-java-5.1.47/*.jar ./volumes/connect-plugin-jars/confluentinc-
 docker ps --format "table {{.Names}}\t{{.Ports}}"
 ```
 
+LIST ALL connectors
+
+```
+curl -X GET http://localhost:8083/connectors
+
+```
+
+CHECK PARTICULAR CONNECTOR status , note <connector-name>> that must match one in the list
+
+```
+curl -X GET http://localhost:8083/connectors/<connector-name>/status
+
+example
+
+curl -X GET http://localhost:8083/connectors/mysql-product-source/status
+```
+
+
 ```
 curl -X POST http://localhost:8083/connectors \
      -H "Content-Type: application/json" \
