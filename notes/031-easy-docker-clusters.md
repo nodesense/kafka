@@ -95,3 +95,31 @@ to be added into docker compose later
 ```
 
 open kafka manager http://localhost:9000
+
+
+# Portainer
+
+
+https://docs.portainer.io/start/install-ce/server/docker/linux
+
+```
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:lts
+
+```
+
+check on browser  
+https://localhost:9443
+
+create user 
+
+
+username: admin
+
+password: admin@123456
+
+
+
+
+```
+```
