@@ -1,3 +1,25 @@
+
+Miniconda
+
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-py310_25.1.1-2-Linux-x86_64.sh
+
+chmod +x Miniconda3-py310_25.1.1-2-Linux-x86_64.sh
+
+./Miniconda3-py310_25.1.1-2-Linux-x86_64.sh
+```
+
+You have to ENTER first, then scroll text using down arrow.
+
+Then type yes and press enter
+
+then press enter to confirm the location
+
+then type yes for conda init....
+
+then close the shell, open the shell again to see (base) in your shell.
+
+
 Intellj community Edition Linux
 
 ```
