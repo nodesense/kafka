@@ -64,7 +64,11 @@ python kafka_docker_composer.py --zookeepers 1 --brokers 3 --schema-registries 1
 ```
 
 ```
-docker compose -f docker-compose.yml -f postgres.yaml up
+docker compose -f docker-compose.yml -f postgres.yaml  up
+
+or with connect and mysql
+
+docker compose -f docker-compose.yml -f postgres.yaml -f mysql.yaml up
 ```
 
 access grafana 
