@@ -132,3 +132,14 @@ add below without modifing other settings..
 ```
 
 ```
+
+# KAFKA Connect
+
+```
+cd kafka-docker-composer
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.47.tar.gz
+
+tar xf mysql-connector-java-5.1.47.tar.gz
+cp mysql-connector-java-5.1.47/*.jar ./volumes/connect-plugin-jars/confluentinc-kafka-connect-jdbc-10.7.3/lib
+```
