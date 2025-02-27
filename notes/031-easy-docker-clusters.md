@@ -119,7 +119,16 @@ username: admin
 password: admin@123456
 
 
-
+```
+Edit /etc/hosts file for development as kafka runs inside docker network 
+```
 
 ```
+sudo nano /etc/hosts
+```
+
+add below without modifing other settings..
+
+```
+
 ```
