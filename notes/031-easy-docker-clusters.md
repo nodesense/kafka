@@ -37,6 +37,17 @@ git clone https://github.com/sknop/kafka-docker-composer
 cd kafka-docker-composer
 ```
 
+windows cmd, use setx for powershell
+```
+SET PWD=C:\lab\kafka-docker-composer
+```
+
+```
+export PWD=yourdirector
+```
+
+
+
 ```
 python kafka_docker_composer.py --zookeepers 1 --brokers 3 --schema-registries 1   --prometheus
 ```
