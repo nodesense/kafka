@@ -42,6 +42,14 @@ echo "export CONFLUENT_HOME=/opt/confluent-7.7.0" >> ~/.bashrc
 echo "export PATH=\$PATH:\$KAFKA_HOME/bin" >>  ~/.bashrc
 ```
 
+```
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.47.tar.gz
+
+tar xf mysql-connector-java-5.1.47.tar.gz
+cp mysql-connector-java-5.1.47/*.jar /opt/confluent-7.7.0/share/java/kafka-connect-jdbc
+```
+
 If you already have confluent 5/6 versions, open the .bashrc in nano, comment out them
 
 ```
