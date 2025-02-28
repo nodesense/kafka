@@ -1,7 +1,7 @@
 Open command prompt to start zookeeper
 
 ```
-%KAFKA_HOME%\bin\windows\zookeeper-server-start %KAFKA_HOME%\etc\kafka\zookeeper.properties
+%KAFKA_HOME%\bin\windows\zookeeper-server-start %KAFKA_HOME%\config\zookeeper.properties
 ```
 
  ZooKeeper runs on 0.0.0.0/0.0.0.0:2181
@@ -11,7 +11,7 @@ Open second command prompt, to start kafka broker
 
 
 ```
-%KAFKA_HOME%\bin\windows\kafka-server-start %KAFKA_HOME%\etc\kafka\server.properties
+%KAFKA_HOME%\bin\windows\kafka-server-start %KAFKA_HOME%\config\server.properties
 ```
 
 Kafka runs on  9092
