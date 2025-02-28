@@ -14,11 +14,18 @@ data stored in /var/lib/kafka and /var/lib/zookeeper  directories.
 
 **Raft-based Leader Election**: The KRaft protocol handles leader election and ensures all brokers are aware of each other’s roles without the need for an external coordination service like ZooKeeper.
 
+```
+sudo apt -y install openjdk-11-jdk
+
+
+
+echo "JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64" >> ~/.bashrc
+echo "JRE_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64" >>  ~/.bashrc
 
 ```
+```
 
-https://packages.confluent.io/archive/7.7/confluent-7.7.0.tar.gz
-
+ 
 wget  https://packages.confluent.io/archive/7.7/confluent-7.7.0.tar.gz
 tar xf confluent-7.7.0.tar.gz
 
