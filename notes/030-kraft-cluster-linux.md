@@ -3,6 +3,9 @@ Reference architecture:
 https://www.slideshare.net/slideshow/introducing-kraft-kafka-without-zookeeper-with-colin-mccabe-current-2022/253765098
 
 
+data stored in /var/lib/kafka and /var/lib/zookeeper  directories.
+
+
 **KRaft Controller Quorum**: Kafka uses a Raft-based quorum (KRaft) where brokers communicate with each other for leader election, metadata management, and failover. In a KRaft cluster, one or more brokers are designated as controller nodes that manage metadata.
 
 **Controller Nodes**: A subset of Kafka brokers are designated as controllers to form the Raft quorum. These controllers manage metadata (e.g., topics, partitions) and broker state.
