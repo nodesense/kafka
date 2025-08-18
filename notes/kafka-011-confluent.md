@@ -32,7 +32,7 @@ kafka
 
 schema-registry
 
-ksql-server (sometimes just ksql)
+ksql-server
 
 connect
 
