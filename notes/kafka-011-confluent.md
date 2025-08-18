@@ -6,6 +6,7 @@ confluent local current
 ```
 
 ```
+confluent local services status
 confluent local services start
 confluent local services stop
 confluent local services restart
