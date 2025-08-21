@@ -53,6 +53,10 @@ export PWD=yourdirector
 ```
 
 
+Day 4 HCL
+```
+python kafka_docker_composer.py --zookeepers 1 --brokers 1   -r 7.3.1
+```
 
 ```
 python kafka_docker_composer.py --zookeepers 1 --brokers 3 --schema-registries 1   --prometheus
