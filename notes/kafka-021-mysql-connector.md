@@ -1,5 +1,36 @@
 # MySQL , JDBC Source and Sink : Event Sourcing
 
+```
+curl -s http://localhost:8083/connector-plugins | jq '.[].class'
+```
+
+```
+confluent-hub install --no-prompt confluentinc/kafka-connect-jdbc:10.6.6
+```
+
+```
+sudo chmod -R 755 /opt/confluent-6.2.15
+```
+
+
+```
+wget -O $CONFLUENT_HOME/share/confluent-hub-components/confluentinc-kafka-connect-jdbc/lib/mysql-connector-j-8.0.33.jar \
+  https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar
+```
+
+```
+confluent local services connect stop
+```
+
+
+```
+confluent local services connect start
+```
+
+```
+curl -s http://localhost:8083/connector-plugins | jq '.[].class' | grep -i jdbc
+```
+
 # MYSQL Table/Database Setup
 
 
