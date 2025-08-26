@@ -136,7 +136,7 @@ echo -e "first line\nsecond line\nthird line" > /home/training/spool/texts/in/sa
 echo -e "second file line 1" > /home/training/spool/texts/in/sample2.txt
 ```
 
-# Working with CSV
+# Working with CSV, output in json format
 
 ```
 mkdir -p /home/training/spool/stocks/{in,finished,error}
@@ -180,7 +180,15 @@ paste below into the mousepad or editor
 
 
     "key.schema": "{\"name\":\"stocks.Key\",\"type\":\"STRUCT\",\"isOptional\":false,\"fieldSchemas\":{\"symbol\":{\"type\":\"STRING\",\"isOptional\":false}}}",
-    "value.schema": "{\"name\":\"stocks.Value\",\"type\":\"STRUCT\",\"isOptional\":false,\"fieldSchemas\":{\"symbol\":{\"type\":\"STRING\",\"isOptional\":false},\"price\":{\"type\":\"FLOAT64\",\"isOptional\":false},\"volume\":{\"type\":\"INT64\",\"isOptional\":false}}}"
+    "value.schema": "{\"name\":\"stocks.Value\",\"type\":\"STRUCT\",\"isOptional\":false,\"fieldSchemas\":{\"symbol\":{\"type\":\"STRING\",\"isOptional\":false},\"price\":{\"type\":\"FLOAT64\",\"isOptional\":false},\"volume\":{\"type\":\"INT64\",\"isOptional\":false}}}",
+
+    "errors.tolerance": "all",
+    "errors.deadletterqueue.topic.name": "stocks_dlq",
+    "errors.deadletterqueue.context.headers.enable": "true",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "true",
+    "errors.deadletterqueue.topic.replication.factor": "1"
+
 
   }
 }
@@ -203,6 +211,26 @@ curl http://localhost:8083/connectors  | jq
 check status of the connector 
 ```
 curl http://localhost:8083/connectors/stocks-csv-source/status | jq
+```
+
+
+Generate input file in wrong csv, missing column, let it go to error directory
+
+```
+cat > /home/training/spool/stocks/in/bad_missing_col.csv <<'CSV'
+symbol,price,volume
+AAPL
+MSFT,338.50
+CSV
+```
+
+column shift error
+
+```
+cat > /home/training/spool/stocks/in/bad_thousands.csv <<'CSV'
+symbol,price,volume
+AAPL,1,187.65,200
+CSV
 ```
 
 # work setup
