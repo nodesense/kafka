@@ -24,6 +24,119 @@ curl http://localhost:8083/connectors/<name>/status
 ```
 
 
+Existing connectors list via plugin
+
+```
+curl -s http://localhost:8083/connector-plugins | jq '.[].class'
+```
+Existing connectors list via plugin that matches spool
+
+```
+curl -s http://localhost:8083/connector-plugins | jq '.[].class' | grep -i SpoolDir
+```
+
+Install SpoolDir connector
+
+You need to press y (mean yes) option to accept path, follow as per instructor
+
+```
+confluent-hub install confluentinc/kafka-connect-spooldir:latest
+```
+
+```
+confluent local services connect stop
+```
+
+```
+confluent local services connect start
+```
+
+check those drivers installed
+```
+curl -s http://localhost:8083/connector-plugins | jq '.[].class' | grep -i SpoolDir
+```
+
+# Text file source connect
+
+now we will read text files from input directories (detect new files) 
+
+Here in is the input files, finished is output files, error for error files like parsing error
+as soon as file read, published to kafka, the input files shall be moved to finished
+
+```
+mkdir -p /home/training/spool/texts/{in,finished,error}
+```
+
+
+```
+mousepad ~/text-lines-source.json
+```
+
+paste below into mousepad, save the file
+
+```json
+{
+  "name": "text-lines-source",
+  "config": {
+    "connector.class": "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirLineDelimitedSourceConnector",
+    "tasks.max": "1",
+
+    "input.path": "/home/training/spool/texts/in",
+    "input.file.pattern": ".*\\.(txt|log)",
+    "finished.path": "/home/training/spool/texts/finished",
+    "error.path": "/home/training/spool/texts/error",
+
+    "topic": "text_lines",
+
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter"
+  }
+}
+```
+
+```
+curl -X POST -H "Content-Type: application/json" \
+  --data @text-lines-source.json \
+  http://localhost:8083/connectors
+```
+
+check connectors running
+```
+curl http://localhost:8083/connectors        
+```
+
+check status of the connector 
+```
+curl http://localhost:8083/connectors/text-lines-source/status
+```
+
+Make sure the file exists (files shall be moved to finished or error if completed)
+
+```
+ls -l /home/training/spool/texts/in
+ls -l /home/training/spool/texts/finished
+ls -l /home/training/spool/texts/error
+```
+
+Consume produced records
+
+```
+kafka-console-consumer --bootstrap-server localhost:9092 \
+  --topic text_lines --from-beginning --max-messages 10
+```
+
+
+generate file with content
+
+```
+echo -e "first line\nsecond line\nthird line" > /home/training/spool/texts/in/sample1.txt
+```
+
+```
+echo -e "second file line 1" > /home/training/spool/texts/in/sample2.txt
+```
+
+
 # work setup
 Use Home Directory in Linux
 
