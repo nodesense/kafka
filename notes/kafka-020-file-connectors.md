@@ -232,6 +232,17 @@ symbol,price,volume
 AAPL,1,187.65,200
 CSV
 ```
+
+Check for errors
+
+open temrinal
+```
+cd /tmp
+ls
+cd confluent.xyz
+cd connect
+grep -R "ERROR" logs/*.log
+```
   
 # SKIP this File Sink connector (for Confluent 5.x or Apache Kafka)
 
