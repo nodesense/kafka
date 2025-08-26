@@ -114,9 +114,9 @@ cd ~
 ```
 
 ```
-touch mysql-product-source.json
  
-nano  mysql-product-source.json
+ 
+mousepad  mysql-product-source.json
 ```
    paste below
 ```
@@ -142,9 +142,7 @@ nano  mysql-product-source.json
  
 the above configuration shall publish the data to kafka topic db_products, where db_ is predix, table is products 
 
-```
-cat mysql-product-source.json
- ```
+ 
 
 ```
 curl -X POST -H "Content-Type: application/json" \
@@ -152,13 +150,7 @@ curl -X POST -H "Content-Type: application/json" \
   http://localhost:8083/connectors
 ```
  
- 
-### restart the cluster once due to jdbc drivers copied just now
-
-```
-confluent local stop
-confluent local start
-```
+  
  
 ### END PROPERTY JSON CONFIGURATION
 
@@ -222,9 +214,8 @@ USE ecommerce;
   
   
 ```
-touch  mysql-product-sink.json
-
-nano  mysql-product-sink.json
+ 
+mousepad  mysql-product-sink.json
 ```
 
 
@@ -288,8 +279,7 @@ select * from products
 ```
 mousepad  mysql-invoice-sink.json
 
-nano  mysql-invoice-sink.json
-```
+ ```
 
 
 ```
