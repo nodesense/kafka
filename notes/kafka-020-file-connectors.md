@@ -69,7 +69,7 @@ mkdir -p /home/training/spool/texts/{in,finished,error}
 
 
 ```
-mousepad ~/text-lines-source.json
+mousepad ~/text-lines-source.json   &
 ```
 
 paste below into mousepad, save the file
@@ -151,7 +151,7 @@ echo -e "symbol,price,volume\nAAPL,187.65,200\nMSFT,338.50,150" > /home/training
 csv source connnector.. 
 
 ```
-mousepad stocks-csv-source.json
+mousepad stocks-csv-source.json &
 ```
 
 paste below into the mousepad or editor
