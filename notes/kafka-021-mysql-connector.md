@@ -226,16 +226,7 @@ curl -X POST -H "Content-Type: application/json" \
   --data @mysql-product-sink.json \
   http://localhost:8083/connectors
 ```
-  
-```
- confluent local load mysql-product-sink -- -d  mysql-product-sink.json
-```
-  
-  
- ```
-  confluent local status mysql-product-sink
-  ```
-  
+   
 Copy paste without new line
     
 ```
@@ -294,10 +285,7 @@ curl -X POST -H "Content-Type: application/json" \
  confluent local load mysql-invoice-sink -- -d  mysql-invoice-sink.json
 ```
   
-  
- ```
-  confluent local status mysql-invoice-sink
-  ```
+   
   
  ```
   now run the InvoiceProducer in Java 
