@@ -136,6 +136,74 @@ echo -e "first line\nsecond line\nthird line" > /home/training/spool/texts/in/sa
 echo -e "second file line 1" > /home/training/spool/texts/in/sample2.txt
 ```
 
+# Working with CSV
+
+```
+mkdir -p /home/training/spool/stocks/{in,finished,error}
+```
+
+Sample CSV (edit to your real data later)
+
+```
+echo -e "symbol,price,volume\nAAPL,187.65,200\nMSFT,338.50,150" > /home/training/spool/stocks/in/stocks.csv
+```
+
+csv source connnector.. 
+
+```
+mousepad stocks-csv-source.json
+```
+
+paste below into the mousepad or editor
+
+```
+{
+  "name": "stocks-csv-source",
+  "config": {
+    "connector.class": "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector",
+    "tasks.max": "1",
+
+    "input.path": "/home/training/spool/stocks/in",
+    "input.file.pattern": ".*\\.csv",
+    "finished.path": "/home/training/spool/stocks/finished",
+    "error.path": "/home/training/spool/stocks/error",
+    "halt.on.error": "false",
+
+    "topic": "stocks",
+
+    "csv.first.row.as.header": "true",
+ 
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "true",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "true",
+
+
+    "key.schema": "{\"name\":\"stocks.Key\",\"type\":\"STRUCT\",\"isOptional\":false,\"fieldSchemas\":{\"symbol\":{\"type\":\"STRING\",\"isOptional\":false}}}",
+    "value.schema": "{\"name\":\"stocks.Value\",\"type\":\"STRUCT\",\"isOptional\":false,\"fieldSchemas\":{\"symbol\":{\"type\":\"STRING\",\"isOptional\":false},\"price\":{\"type\":\"FLOAT64\",\"isOptional\":false},\"volume\":{\"type\":\"INT64\",\"isOptional\":false}}}"
+
+  }
+}
+```
+
+Load connector
+
+```
+curl -X POST -H "Content-Type: application/json" \
+  --data @stocks-csv-source.json \
+  http://localhost:8083/connectors
+```
+
+
+check connectors running
+```
+curl http://localhost:8083/connectors  | jq      
+```
+
+check status of the connector 
+```
+curl http://localhost:8083/connectors/stocks-csv-source/status | jq
+```
 
 # work setup
 Use Home Directory in Linux
