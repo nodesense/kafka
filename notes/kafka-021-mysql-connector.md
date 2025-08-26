@@ -195,14 +195,6 @@ USE ecommerce;
   
   
   open new linux shell
- 
-  ```
-  wsl -u root
-  ```
-  
- ```
-  cd /root
- ```
   
   
 ```
