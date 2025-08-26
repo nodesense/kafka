@@ -232,115 +232,8 @@ symbol,price,volume
 AAPL,1,187.65,200
 CSV
 ```
-
-# work setup
-Use Home Directory in Linux
-
-open terminal 
-
-```
-cd ~
-```
-
-File Connector, File Source connector
-    input file, read from teh file stocks.csv, watch the file change,
-    publish to kafka topic called stocks
- 
-Create the file 
-
-
-```
-touch stocks.csv
-```
- 
- 
-
-Load the source connector / run the connector
-
-```
-touch stock-file-source.json
-
-nano stock-file-source.json
-```
-
-and below content  into nano
-
-```
-
-{
- "name": "stock-file-source",
- "config": {
-     "connector.class": "FileStreamSource",
-     "tasks.max": "1",
-    "file": "/home/ubuntu/stocks.csv",
-    "topic": "stocks"
-     }
- }
-```
-
-Ctrl + O - to save the content
-
-if it is prompting to write content,  Hit Enter key
-
-Ctrl + X - to quit the nano editor
-
-
-Use cat command to check content
-
-```
-cat stock-file-source.json
-```
-
-
-```
-confluent local load stock-file-source -- -d stock-file-source.json
-
-```
-
-Check whether connector is running or not
-
-```
-confluent local status connectors
-```
-
-check specific connector status 
-
-```
-confluent local status stock-file-source
-
-```
-
-start consumer on stocks topic on separate linux shell..
-
-``` 
-kafka-console-consumer --bootstrap-server localhost:9092 --topic  stocks   --from-beginning
-
-
-```
-
-Put some data into csv file
-
-```
-echo "1234,10" >> stocks.csv
-
-echo "1235,20" >> stocks.csv
-
-echo "1236,30" >> stocks.csv
-
-
-cat stocks.csv
-```
-
-
-to unload kafka connector running? 
-
-```
-confluent local unload stock-file-source
-```
-
-
-
-# File Sink connector
+  
+# SKIP this File Sink connector (for Confluent 5.x or Apache Kafka)
 
 
 Ensure simpleproducer.java topic should be greetings
@@ -413,7 +306,7 @@ confluent local  unload greetings-file-sink
 ```
 
 
-# Invoices to file sink
+# Skip this Invoices to file sink  (for Confluent 5.x or Apache Kafka)
 
 
 
@@ -500,7 +393,7 @@ confluent local  unload invoices-file-sink
 
 
 
-## One last example Avro and file sink
+## Skip this One last example Avro and file sink  (for Confluent 5.x or Apache Kafka)
 
 ```
 touch stock-orders.txt
