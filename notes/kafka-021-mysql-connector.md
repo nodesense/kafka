@@ -245,6 +245,12 @@ nano  mysql-product-sink.json
    }
  }
 ```
+
+```
+curl -X POST -H "Content-Type: application/json" \
+  --data @mysql-product-sink.json \
+  http://localhost:8083/connectors
+```
   
 ```
  confluent local load mysql-product-sink -- -d  mysql-product-sink.json
@@ -280,7 +286,7 @@ select * from products
   
   
 ```
-touch  mysql-invoice-sink.json
+mousepad  mysql-invoice-sink.json
 
 nano  mysql-invoice-sink.json
 ```
@@ -301,6 +307,13 @@ nano  mysql-invoice-sink.json
      "auto.create": true
    }
  }
+```
+
+
+```
+curl -X POST -H "Content-Type: application/json" \
+  --data @mysql-invoice-sink.json \
+  http://localhost:8083/connectors
 ```
   
 ```
