@@ -4,12 +4,23 @@
  ### List avaiable connectors and status of the connectors
 
 ```
- 
-confluent local services connect connector list
+ confluent local services connect connector list
+```
 
 
+```
 confluent local services connect connector status
 
+```
+
+```
+curl http://localhost:8083/connectors        
+```
+
+you need to replace connector name <name>, discussed later
+
+```
+curl http://localhost:8083/connectors/<name>/status
 ```
 
 
