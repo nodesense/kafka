@@ -14,13 +14,13 @@ confluent local services connect connector status
 ```
 
 ```
-curl http://localhost:8083/connectors        
+curl http://localhost:8083/connectors   | jq
 ```
 
 you need to replace connector name <name>, discussed later
 
 ```
-curl http://localhost:8083/connectors/<name>/status
+curl http://localhost:8083/connectors/<name>/status | jq
 ```
 
 
@@ -102,12 +102,12 @@ curl -X POST -H "Content-Type: application/json" \
 
 check connectors running
 ```
-curl http://localhost:8083/connectors        
+curl http://localhost:8083/connectors  | jq      
 ```
 
 check status of the connector 
 ```
-curl http://localhost:8083/connectors/text-lines-source/status
+curl http://localhost:8083/connectors/text-lines-source/status | jq
 ```
 
 Make sure the file exists (files shall be moved to finished or error if completed)
