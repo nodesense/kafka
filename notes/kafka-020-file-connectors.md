@@ -40,7 +40,7 @@ Install SpoolDir connector
 You need to press y (mean yes) option to accept path, follow as per instructor
 
 ```
-confluent-hub install confluentinc/kafka-connect-spooldir:latest
+confluent-hub  --no-prompt  install confluentinc/kafka-connect-spooldir:latest
 ```
 
 ```
