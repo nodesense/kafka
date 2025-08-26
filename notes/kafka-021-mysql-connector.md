@@ -145,6 +145,12 @@ the above configuration shall publish the data to kafka topic db_products, where
 ```
 cat mysql-product-source.json
  ```
+
+```
+curl -X POST -H "Content-Type: application/json" \
+  --data @mysql-product-source.json \
+  http://localhost:8083/connectors
+```
  
  
 ### restart the cluster once due to jdbc drivers copied just now
