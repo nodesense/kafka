@@ -5,9 +5,11 @@
 
 ```
  
-confluent local list connectors
+confluent local services connect connector list
 
-confluent local status connectors
+
+confluent local services connect connector status
+
 ```
 
 
