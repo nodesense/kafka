@@ -157,3 +157,46 @@ bin/kafka-console-consumer --bootstrap-server localhost:9093 \
   --topic ssl-test --from-beginning
 ```
 
+## Working with Avro
+
+Avro producer
+
+```
+cd "$CONFLUENT_HOME"
+
+bin/kafka-avro-console-producer \
+  --broker-list localhost:9093 \
+  --topic avro-ssl-test \
+  --producer-property security.protocol=SSL \
+  --producer-property ssl.truststore.location=$HOME/cp-ssl/certs/kafka.server.truststore.jks \
+  --producer-property ssl.truststore.password=changeit \
+  --property schema.registry.url=https://localhost:8081 \
+  --property schema.registry.ssl.truststore.location=$HOME/cp-ssl/certs/kafka.server.truststore.jks \
+  --property schema.registry.ssl.truststore.password=changeit \
+  --property value.schema='{"type":"record","name":"User","fields":[{"name":"name","type":"string"},{"name":"age","type":"int"}]}'
+```
+
+copy paste without extra space, no addtional line break, one after another
+```
+{"name":"Joe","age":20}
+{"name":"Raven","age":25}
+```
+
+consumer
+
+```
+cd "$CONFLUENT_HOME"
+
+bin/kafka-avro-console-consumer \
+  --bootstrap-server localhost:9093 \
+  --topic avro-ssl-test \
+  --from-beginning \
+  --consumer-property security.protocol=SSL \
+  --consumer-property ssl.truststore.location=$HOME/cp-ssl/certs/kafka.server.truststore.jks \
+  --consumer-property ssl.truststore.password=changeit \
+  --property schema.registry.url=https://localhost:8081 \
+  --property schema.registry.ssl.truststore.location=$HOME/cp-ssl/certs/kafka.server.truststore.jks \
+  --property schema.registry.ssl.truststore.password=changeit
+```
+
+
