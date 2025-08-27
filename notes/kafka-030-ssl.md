@@ -49,7 +49,7 @@ keytool -importcert -alias CARoot -file ca.crt \
 
 ```
 cd "$CONFLUENT_HOME"
-bin/zookeeper-server-start etc/kafka/zookeeper.properties
+$CONFLUENT_HOME/bin/zookeeper-server-start $CONFLUENT_HOME/etc/kafka/zookeeper.properties
 ```
 
 ### Start Kafka broker over SSL
@@ -57,18 +57,18 @@ bin/zookeeper-server-start etc/kafka/zookeeper.properties
 ```
 cd "$CONFLUENT_HOME"
 
-bin/kafka-server-start etc/kafka/server.properties \
+$CONFLUENT_HOME/bin/kafka-server-start $CONFLUENT_HOME/etc/kafka/server.properties \
   --override listeners=SSL://:9093 \
   --override advertised.listeners=SSL://localhost:9093 \
-  --override listener.security.protocol.map=SSL:SSL,PLAINTEXT:PLAINTEXT \
-  --override inter.broker.listener.name=SSL \
+  --override listener.security.protocol.map=SSL:SSL \
   --override security.inter.broker.protocol=SSL \
   --override ssl.keystore.location=$HOME/cp-ssl/certs/kafka.server.keystore.jks \
   --override ssl.keystore.password=changeit \
   --override ssl.key.password=changeit \
   --override ssl.truststore.location=$HOME/cp-ssl/certs/kafka.server.truststore.jks \
   --override ssl.truststore.password=changeit \
-  --override ssl.client.auth=false
+  --override ssl.client.auth=none
+
 ```
 
 ### Schema registry over SSL
@@ -76,7 +76,7 @@ bin/kafka-server-start etc/kafka/server.properties \
 ```
 cd "$CONFLUENT_HOME"
 
-bin/schema-registry-start etc/schema-registry/schema-registry.properties \
+$CONFLUENT_HOME/bin/schema-registry-start $CONFLUENT_HOME/etc/schema-registry/schema-registry.properties \
   --override listeners=https://0.0.0.0:8081 \
   --override kafkastore.bootstrap.servers=SSL://localhost:9093 \
   --override ssl.truststore.location=$HOME/cp-ssl/certs/kafka.server.truststore.jks \
