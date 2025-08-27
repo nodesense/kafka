@@ -74,22 +74,42 @@ $CONFLUENT_HOME/bin/kafka-server-start $CONFLUENT_HOME/etc/kafka/server.properti
 ### Schema registry over SSL
 
 ```
-cd "$CONFLUENT_HOME"
+mousepad ~/cp-ssl/schema-registry-ssl.properties
+```
 
-$CONFLUENT_HOME/bin/schema-registry-start $CONFLUENT_HOME/etc/schema-registry/schema-registry.properties \
-  --override listeners=https://0.0.0.0:8081 \
-  --override kafkastore.bootstrap.servers=SSL://localhost:9093 \
-  --override ssl.truststore.location=$HOME/cp-ssl/certs/kafka.server.truststore.jks \
-  --override ssl.truststore.password=changeit \
-  --override ssl.keystore.location=$HOME/cp-ssl/certs/kafka.server.keystore.jks \
-  --override ssl.keystore.password=changeit \
-  --override ssl.key.password=changeit \
-  --override kafkastore.security.protocol=SSL \
-  --override kafkastore.ssl.truststore.location=$HOME/cp-ssl/certs/kafka.server.truststore.jks \
-  --override kafkastore.ssl.truststore.password=changeit \
-  --override kafkastore.ssl.keystore.location=$HOME/cp-ssl/certs/kafka.server.keystore.jks \
-  --override kafkastore.ssl.keystore.password=changeit \
-  --override kafkastore.ssl.key.password=changeit
+```
+# ===== REST (HTTPS) =====
+listeners=https://0.0.0.0:8081
+ssl.truststore.location=/home/training/cp-ssl/certs/kafka.server.truststore.jks
+ssl.truststore.password=changeit
+ssl.keystore.location=/home/training/cp-ssl/certs/kafka.server.keystore.jks
+ssl.keystore.password=changeit
+ssl.key.password=changeit
+# ssl.client.auth=true
+
+# ===== Internal calls must match your listener scheme =====
+inter.instance.protocol=https
+# schema.registry.inter.instance.protocol=https   <-- if you add this, put it on its own line (no trailing comment)
+
+# ===== Kafka store over SSL =====
+kafkastore.bootstrap.servers=SSL://localhost:9093
+kafkastore.security.protocol=SSL
+kafkastore.ssl.truststore.location=/home/training/cp-ssl/certs/kafka.server.truststore.jks
+kafkastore.ssl.truststore.password=changeit
+kafkastore.ssl.keystore.location=/home/training/cp-ssl/certs/kafka.server.keystore.jks
+kafkastore.ssl.keystore.password=changeit
+kafkastore.ssl.key.password=changeit
+```
+
+start schema registry
+```
+$CONFLUENT_HOME/bin/schema-registry-start ~/cp-ssl/schema-registry-ssl.properties
+```
+
+test schema registry with ssl
+
+```
+curl -k https://localhost:8081/subjects
 ```
 
 ### Client config properties
