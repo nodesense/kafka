@@ -63,7 +63,7 @@ mkdir -p /tmp/kraft/bk1/data /tmp/kraft/bk2/data /tmp/kraft/bk3/data
 ```
 
 ```
-nano /tmp/kraft/bk1/broker1.properties
+mosuepad /tmp/kraft/bk1/broker1.properties &
 ```
 
 Paste, Ctrl + O, Ctrl + X 
@@ -102,7 +102,7 @@ log.retention.check.interval.ms=300000
 
 
 ```
-nano /tmp/kraft/bk2/broker2.properties
+mousepad /tmp/kraft/bk2/broker2.properties &
 ```
 
 ```
@@ -130,7 +130,7 @@ confluent.metadata.server.listeners=http://0.0.0.0:8091
 
 
 ```
-nano /tmp/kraft/bk3/broker3.properties
+mousepad /tmp/kraft/bk3/broker3.properties &
 ```
 
 ```
