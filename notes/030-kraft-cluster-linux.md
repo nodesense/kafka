@@ -234,3 +234,10 @@ note: schema registry will include a new property settings
 kafkastore.bootstrap.servers=PLAINTEXT://localhost:9092
 ```
 
+Kafka cluster status
+
+```
+kafka-metadata-quorum --bootstrap-server localhost:9092 describe --status
+```
+
+
