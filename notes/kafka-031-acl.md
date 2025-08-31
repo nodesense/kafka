@@ -5,6 +5,18 @@ Granting permission to user with Read/Write permissions
 You need to work with multiple terminal, all the terminal must start with BASE initializaiton, as we have few properties files there
 
 Always ensure that you set this properties on every terminal during hands-on
+
+ZooKeeper data shall be stored into /tmp/zookeeper directory, and kafka data on /tmp/kafka-acl, please remove before you start this hands-on
+
+remember to remove before start of this excercise, remove after done with excercise
+
+1. /tmp/kafka-acl
+2. /tmp/zookeeper
+
+
+
+
+
 ```
 BASE="$HOME/cp-acl-sasl"
 ```
@@ -41,7 +53,7 @@ cat > "$BASE/configs/server.properties" <<EOF
 broker.id=1
 listeners=SASL_PLAINTEXT://:9092
 advertised.listeners=SASL_PLAINTEXT://localhost:9092
-log.dirs=/home/training/cp-acl-sasl/logs/kafka
+log.dirs=/tmp/kafka-acl
 zookeeper.connect=localhost:2181
 default.replication.factor=1
 min.insync.replicas=1
