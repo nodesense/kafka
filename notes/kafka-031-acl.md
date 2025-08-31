@@ -163,4 +163,102 @@ $CONFLUENT_HOME/bin/kafka-acls --bootstrap-server localhost:9092 \
 
 Client settings files used for users.
 
+user alice
+
+```
+cat > "$BASE/configs/client-alice.properties" <<'EOF'
+security.protocol=SASL_PLAINTEXT
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+  username="alice" password="alice-secret";
+EOF
+```
+
+Run the producer with alice
+
+```
+
+$CONFLUENT_HOME/bin/kafka-console-producer \
+  --bootstrap-server localhost:9092 \
+  --topic demo-acl \
+  --producer.config "$BASE/configs/client-alice.properties"
+```
+
+Open new Tab for consumer
+
+
+```
+BASE="$HOME/cp-acl-sasl"
+```
+
+create consumer setting file for user bob to read
+
+```
+cat > "$BASE/configs/client-bob.properties" <<'EOF'
+security.protocol=SASL_PLAINTEXT
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+  username="bob" password="bob-secret";
+EOF
+```
+
+Run consumer
+
+```
+$CONFLUENT_HOME/bin/kafka-console-consumer \
+  --bootstrap-server localhost:9092 \
+  --topic demo-acl --group cg-app --from-beginning \
+  --consumer.config "$BASE/configs/client-bob.properties"
+```
+
+Inspect / rollback ACLs (do as per instructions)
+
+open new tab
+
+
+```
+BASE="$HOME/cp-acl-sasl"
+```
+
+list all acls for a topic
+
+```
+$CONFLUENT_HOME/bin/kafka-acls --bootstrap-server localhost:9092 \
+  --command-config "$BASE/configs/admin-client.properties" \
+  --list --topic demo-acl
+```
+
+list all acls for group
+```
+$CONFLUENT_HOME/bin/kafka-acls --bootstrap-server localhost:9092 \
+  --command-config "$BASE/configs/admin-client.properties" \
+  --list --group cg-app
+ ```
+
+remove alice
+```
+$CONFLUENT_HOME/bin/kafka-acls --bootstrap-server localhost:9092 \
+  --command-config "$BASE/configs/admin-client.properties" \
+  --remove --allow-principal User:alice \
+  --operation Write --operation Describe --topic demo-acl
+```
+
+remove bob
+```
+$CONFLUENT_HOME/bin/kafka-acls --bootstrap-server localhost:9092 \
+  --command-config "$BASE/configs/admin-client.properties" \
+  --remove --allow-principal User:bob \
+  --operation Read --topic demo-acl
+```
+
+remove user from group
+
+```
+$CONFLUENT_HOME/bin/kafka-acls --bootstrap-server localhost:9092 \
+  --command-config "$BASE/configs/admin-client.properties" \
+  --remove --allow-principal User:bob \
+  --operation Read --group cg-app
+```
+
+
 
