@@ -1,6 +1,8 @@
 # KAFKA ACL
 
-Granting permission to user with Read/Write permissions
+Granting permission to user with Read/Write permissions 
+
+*SASL = Simple Authentication and Security Layer.*
 
 You need to work with multiple terminal, all the terminal must start with BASE initializaiton, as we have few properties files there
 
