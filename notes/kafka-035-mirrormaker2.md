@@ -119,6 +119,11 @@ mkdir -p connectors
 
 Mirror Maker 2 setup.
 
+set "source.cluster.alias": "src" in the connector, so mm2-demo-orders on source becomes src.mm2-demo-orders on destination
+due to "replication.policy.class": "org.apache.kafka.connect.mirror.DefaultReplicationPolicy"
+(DefaultReplicationPolicy ⇒ <source-alias>.<topic>)
+
+
 ```
 cat > connectors/src-to-dest.json <<'JSON'
 {
@@ -256,6 +261,12 @@ docker exec -it kafka-dest bash -lc \
   "kafka-console-consumer --bootstrap-server kafka-dest:9093 --topic src.mm2-demo-orders --from-beginning --timeout-ms 5000"
 ```
 
+```
+docker exec -it kafka-dest bash -lc \
+  "kafka-console-consumer --bootstrap-server kafka-dest:9093 \
+   --topic src.mm2-demo-orders --from-beginning \
+   --property value.deserializer=org.apache.kafka.common.serialization.StringDeserializer"
+```
  
 List connectors & their status:
 
@@ -271,6 +282,29 @@ logs
 ```
 docker compose logs -f mm2
 ```
+
+Wanted to copy as is
+
+```
+curl -s -X PUT -H "Content-Type: application/json" \
+  http://localhost:8083/connectors/mm2-src-to-dest-as-is/config \
+  -d '{
+    "connector.class": "org.apache.kafka.connect.mirror.MirrorSourceConnector",
+    "tasks.max": "1",
+    "source.cluster.alias": "src",
+    "target.cluster.alias": "dest",
+    "source.cluster.bootstrap.servers": "kafka-src:9092",
+    "target.cluster.bootstrap.servers": "kafka-dest:9093",
+    "replication.policy.class": "org.apache.kafka.connect.mirror.IdentityReplicationPolicy",
+    "replication.factor": "1",
+    "topics": "mm2-demo-.*",
+    "refresh.topics.interval.seconds": "10",
+    "sync.topic.configs.enabled": "true",
+    "sync.topic.acls.enabled": "false"
+  }'
+
+```
+
 
 Final shutdown
 ```
