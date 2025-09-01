@@ -121,10 +121,10 @@ mousepad ~/cp-ssl/client.properties
 paste below
 ```
 security.protocol=SSL
-ssl.truststore.location=/home/$USER/cp-ssl/certs/kafka.server.truststore.jks
+ssl.truststore.location=/home/training/cp-ssl/certs/kafka.server.truststore.jks
 ssl.truststore.password=changeit
 # If you later enable client auth on the broker (ssl.client.auth=true), add:
-# ssl.keystore.location=/home/$USER/cp-ssl/certs/kafka.server.keystore.jks
+# ssl.keystore.location=/home/training/cp-ssl/certs/kafka.server.keystore.jks
 # ssl.keystore.password=changeit
 # ssl.key.password=changeit
 ```
