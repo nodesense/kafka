@@ -100,8 +100,13 @@ services:
       CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
       CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
 
-      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter
-      CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+      # CONNECT_KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+      # CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.converters.ByteArrayConverter
+      CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.converters.ByteArrayConverter
+      CONNECT_HEADER_CONVERTER: org.apache.kafka.connect.converters.ByteArrayConverter
+
       CONNECT_INTERNAL_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
       CONNECT_INTERNAL_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
       CONNECT_LOG4J_ROOT_LOGLEVEL: INFO
