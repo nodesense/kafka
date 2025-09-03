@@ -1,4 +1,4 @@
-# DLQ
+# DLQ, Not needed, part of s3 sink demo
 
 DLQ means Dead Letter Queues, generally refered while   data processing, if any error with input records due to syntatical or semantical errors, consumer could not process the messages,
 now those messages shall be delivered to error or DLQ topic, so that we have audits for bad/wrong messages which are not processed.
