@@ -26,7 +26,7 @@ confluent local services start
 ```
 
 ```
-cat > minio-compose.yml <<'YAML'
+cat > docker-compose.yml <<'YAML'
 version: "3.8"
 services:
   minio:
