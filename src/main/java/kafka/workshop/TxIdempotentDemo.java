@@ -41,6 +41,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 \
   --property print.key=true --property print.timestamp=true
  */
 
+// Read below, we use isolation-level as read_commited, this is important
 /*
 kafka-console-consumer --bootstrap-server localhost:9092 \
   --topic with-transactions --from-beginning \
@@ -48,6 +49,16 @@ kafka-console-consumer --bootstrap-server localhost:9092 \
   --property print.key=true --property print.timestamp=true
 
  */
+
+// Listen, we have --isolation-level read_uncommitted , we can see aborted messages, not safe
+/*
+kafka-console-consumer --bootstrap-server localhost:9092 \
+        --topic with-transactions --from-beginning \
+        --isolation-level read_uncommitted \
+        --property print.key=true --property print.timestamp=true
+*/
+
+// If -isolation-level, not specificed, which is default, isolation.level = read_uncommitted is default
 
 public class TxIdempotentDemo {
 
