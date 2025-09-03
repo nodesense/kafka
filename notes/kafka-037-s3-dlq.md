@@ -57,7 +57,7 @@ YAML
 ```
 
 ```
-docker compose minio-compose.yml up 
+docker compose   up 
 ```
 
 use -d if you want this containers running as background process
