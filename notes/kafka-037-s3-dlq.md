@@ -174,4 +174,78 @@ kafka-console-consumer \
 ```
 
 
+# MockSinkConnectors
+
+During production, if you want to check wiht mock connector, we have one,
+MockSinkConnector, consume the message, leave that off, if any error push to DLQ. This 
+connector to be used only for demo/dirty test purpose, not for production..
+
+```
+cat > mock-sink-dlq.json <<'JSON'
+{
+  "name": "mock-sink-dlq",
+  "config": {
+    "connector.class": "org.apache.kafka.connect.tools.MockSinkConnector",
+    "tasks.max": "1",
+
+    "topics": "input-json",
+
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+
+    "errors.tolerance": "all",
+    "errors.deadletterqueue.topic.name": "dlq-json",
+    "errors.deadletterqueue.context.headers.enable": "true",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "true"
+  }
+}
+JSON
+```
+
+```
+curl -s -X POST -H "Content-Type: application/json" \
+  --data @connectors/mock-sink-dlq.json \
+  http://localhost:8083/connectors | jq .
+```
+
+```
+curl -s http://localhost:8083/connectors/mock-sink-dlq/status | jq .
+```
+
+```
+kafka-console-producer --broker-list localhost:9092 --topic input-json
+```
+
+Copy one after another, there is bad json, that goes to DLQ
+```
+{"id":1,"name":"ok-record"}
+{"id":2,"name":"also-ok","active":true}
+{broken_json: here]   <-- deliberately malformed, copy only  {broken_json: here] part
+{"id":3,"name":"too-good-ok","active":false}
+```
+
+print bad json with header and exceptions
+
+```
+kafka-console-consumer \
+  --bootstrap-server broker:9092 \
+  --topic dlq-json \
+  --from-beginning \
+  --property print.headers=true \
+  --property print.key=true \
+  --timeout-ms 5000
+```
+
+print only bad jsons, no stack trace
+
+```
+kafka-console-consumer \
+  --bootstrap-server broker:9092 \
+  --topic dlq-json \
+  --from-beginning \
+  --property print.key=true \
+  --timeout-ms 5000
+```
 
